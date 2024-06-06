@@ -1,29 +1,58 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hello Rigo with Vanilla.js</title>
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
-      integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
-      crossorigin="anonymous"
-    />
-    <link rel="shortcut icon" href="./4geeks.ico" />
+    <title>Generador de Excusas</title>
   </head>
   <body>
-    <div class="container-fluid text-center">
-      <h1 class="mt-5">Hello Rigo!</h1>
-      <img src="./rigo-baby.jpg" />
-      <p class="alert alert-warning mt-4">
-        If this text is <b>not</b> centered and <b>yellow</b>, you probably have
-        an error
-      </p>
-      <div class="fixed-bottom p-4">
-        Made with ❤️ by
-        <a href="https://www.4geeksacademy.com">4Geeks Academy</a>
-      </div>
+    <div>
+      <h1>Generador de Excusas</h1>
+      <button id="generateExcuse">Generar Excusa</button>
+      <p id="excuseText"></p>
+      <img
+        id="excuseImage"
+        src="https://deproconsultores.com/wp-content/uploads/2020/05/Art-281-Excusas-1.jpeg"
+        alt="Imagen de excusa"
+      />
     </div>
+
+    <script>
+      const excuses = [
+        {
+          text: "El perro se comió mi tarea",
+          image:
+            "https://www.elcomercio.com/wp-content/uploads/2022/08/12-8-700x391.jpg"
+        },
+        {
+          text: "Me quedé atrapado en el tráfico",
+          image:
+            "https://static01.nyt.com/images/2019/01/22/upshot/22up-traffic1/merlin_144908511_f611b394-7ae4-4e80-a860-9442f5b88656-articleLarge.jpg?quality=75&auto=webp&disable=upscale"
+        },
+        {
+          text: "Me sentí mal",
+          image:
+            "https://www.mundopsicologos.com/site/article/61699/51941/me-siento-mal-9-formas-de-saber-que-hacer-cuando-te-sientes-asi-0_ai1.jpg"
+        },
+        {
+          text: "Olvidé la fecha límite",
+          image: "https://cdn-icons-png.flaticon.com/512/674/674393.png"
+        },
+        {
+          text: "La computadora se descompuso",
+          image:
+            "https://cybermambi.wordpress.com/wp-content/uploads/2014/12/04-cpu.jpg?w=584&h=458"
+        }
+      ];
+
+      document
+        .getElementById("generateExcuse")
+        .addEventListener("click", () => {
+          const randomIndex = Math.floor(Math.random() * excuses.length);
+          const excuse = excuses[randomIndex];
+          document.getElementById("excuseText").textContent = excuse.text;
+          document.getElementById("excuseImage").src = excuse.image;
+        });
+    </script>
   </body>
 </html>
